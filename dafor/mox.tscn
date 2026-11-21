@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d0urui2tkv0bi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[node name="MOX" type="StaticBody2D" unique_id=1382619116]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1165748037]
+modulate = Color(0.076, 0.4, 0.26499996, 1)
+position = Vector2(13.75, 13.25)
+scale = Vector2(280, 270.176)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1968596964]
+modulate = Color(0.076, 0.4, 0.26499996, 1)
+position = Vector2(198.5, 90.49999)
+scale = Vector2(347, 115)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=866535063]
+modulate = Color(0.076, 0.4, 0.26499996, 1)
+position = Vector2(24.079998, 192.05269)
+scale = Vector2(-201.43793, -105.219)
+texture = SubResource("CanvasTexture_g4v7s")

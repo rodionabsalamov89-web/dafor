@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dmt7ij5yentvs"]
+
+[ext_resource type="Script" uid="uid://bkrs0hp75mu7q" path="res://fat_enemy.gd" id="1_lfwlw"]
+[ext_resource type="PackedScene" uid="uid://daui1ishhu4pk" path="res://tank.tscn" id="2_p78ji"]
+[ext_resource type="PackedScene" uid="uid://b0ca0hjxayf2" path="res://enemy.tscn" id="3_62d3a"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+
+[node name="Fat_enemy" type="CharacterBody2D" unique_id=1403595347 groups=["boss_spawn_group", "enemies"]]
+z_index = 1
+scale = Vector2(10, 10)
+script = ExtResource("1_lfwlw")
+tank_enemy_scene = ExtResource("2_p78ji")
+enemy_scene = ExtResource("3_62d3a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1694382072]
+modulate = Color(0.10920001, 0.2293201, 0.91, 1)
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1818861858]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(4.35, 4.5)
+scale = Vector2(6.9000006, 7)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1898709787]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(4, -4.5)
+scale = Vector2(8, 7)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=436100384]
+visible = false
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=470964218]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=619408733]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="IFrameTimer" type="Timer" parent="." unique_id=941598346]
+wait_time = 0.15
+one_shot = true
+
+[node name="BossSpawnTimer" type="Timer" parent="." unique_id=219880338]
+wait_time = 10.0
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1924830488]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
+[connection signal="timeout" from="BossSpawnTimer" to="." method="_on_boss_spawn_timer_timeout"]

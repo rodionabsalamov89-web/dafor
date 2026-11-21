@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dhjwfkwclm8s"]
+
+[ext_resource type="Script" uid="uid://bxldqypuyctjy" path="res://spit.gd" id="1_wd2ab"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xeah"]
+
+[node name="Node2D" type="Area2D" unique_id=1429033742]
+light_mask = 3
+visibility_layer = 8
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_wd2ab")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891997660]
+modulate = Color(0, 0.71, 0.23666677, 1)
+position = Vector2(6.3333344, -0.3333329)
+rotation = 1.5707964
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1361814260]
+position = Vector2(6.333334, -0.33333382)
+shape = SubResource("RectangleShape2D_3xeah")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

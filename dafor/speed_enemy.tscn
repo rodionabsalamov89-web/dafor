@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cdh7sa8qdq7ai"]
+
+[ext_resource type="Script" uid="uid://dm4wcc3p6lrdh" path="res://speed_enemy.gd" id="1_raixh"]
+[ext_resource type="PackedScene" uid="uid://3p1vpwextbtm" path="res://dodger.tscn" id="2_rherc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yf5fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+
+[node name="Govno" type="CharacterBody2D" unique_id=376352714 groups=["enemies"]]
+z_index = 1
+scale = Vector2(1.7, 1.7)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_raixh")
+minion_scene = ExtResource("2_rherc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=132315714 groups=["enemies"]]
+modulate = Color(0.30599988, 0, 0.68, 1)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25247456]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(60, 60)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=292035097]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(10.294118, -13.058823)
+scale = Vector2(20.588236, 22.117645)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2110904882]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(14.8529415, 14.17647)
+scale = Vector2(20.294119, 23.64706)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=4831571]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2048885043]
+visibility_layer = 0
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1497883186]
+
+[node name="DodgeSensor" type="Area2D" parent="." unique_id=1791357224]
+light_mask = 8
+scale = Vector2(10, 10)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DodgeSensor" unique_id=704203211]
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="IFrameTimer" type="Timer" parent="." unique_id=1772239066]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="area_entered" from="DodgeSensor" to="." method="_on_dodge_sensor_area_entered"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]

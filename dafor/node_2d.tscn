@@ -1,0 +1,676 @@
+[gd_scene format=3 uid="uid://chmc551jhd670"]
+
+[ext_resource type="PackedScene" uid="uid://bp74vd6mu4f4m" path="res://wall.tscn" id="1_q6r6c"]
+[ext_resource type="Script" uid="uid://s3plgpn2hbm8" path="res://character_body_2d.gd" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://b6aosfkf52s1j" path="res://bullet.tscn" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://d1xwkras086k8" path="res://spawner.gd" id="3_0hol4"]
+[ext_resource type="PackedScene" uid="uid://c38sginotxunx" path="res://upgrade_menu.tscn" id="3_hqns4"]
+[ext_resource type="PackedScene" uid="uid://b0ca0hjxayf2" path="res://enemy.tscn" id="4_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://upf2m2d45lh7" path="res://torch.tscn" id="6_kdubu"]
+[ext_resource type="PackedScene" uid="uid://dnyi7h6g6pd2w" path="res://spitter.tscn" id="6_x0ka3"]
+[ext_resource type="PackedScene" uid="uid://d0urui2tkv0bi" path="res://mox.tscn" id="7_d21ai"]
+[ext_resource type="PackedScene" uid="uid://cw2emu4dra1m8" path="res://sprinter.tscn" id="7_nr8wp"]
+[ext_resource type="PackedScene" uid="uid://cmocpf7u6h5fu" path="res://rock.tscn" id="8_rj586"]
+[ext_resource type="PackedScene" uid="uid://cgyffsdnspryr" path="res://pit.tscn" id="9_4d7sh"]
+[ext_resource type="PackedScene" uid="uid://dddgg67gcffrf" path="res://mud.tscn" id="10_ir8iy"]
+[ext_resource type="AudioStream" uid="uid://ccpokkrpn81h5" path="res://jurassic park.mp3" id="13_0h7mo"]
+[ext_resource type="PackedScene" uid="uid://daui1ishhu4pk" path="res://tank.tscn" id="15_d2bti"]
+[ext_resource type="PackedScene" uid="uid://dx4qxrxixkdnv" path="res://ghost.tscn" id="16_ta5nu"]
+[ext_resource type="PackedScene" uid="uid://bh4pr6swpvgbt" path="res://carrier.tscn" id="17_flf07"]
+[ext_resource type="PackedScene" uid="uid://3p1vpwextbtm" path="res://dodger.tscn" id="18_k73cj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1849, 5846)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(5015.5625, 1591)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_57qmd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d0u6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(1715, 6282)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
+size = Vector2(6408, 1277)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fcnqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7numd"]
+size = Vector2(60, 60)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta5nu"]
+bg_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 6
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2bti"]
+bg_color = Color(0.9019608, 0.11764706, 0.11764706, 1)
+border_width_left = 6
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yf5fn"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_57qmd"]
+vertices = PackedVector2Array(-96.078125, 1894, -96.07031, 1894, -1978.1563, 1902.9531, -85.64844, -316.28906, -243.99219, 438.85156, -622.71875, 445.15625, -1045, 435.0703, -1051.1406, 133.89063, -444.9922, -711.40625, -134.85938, -642.71875, -88.14844, 1658.9531, 739.1328, 1887.0781, -762.96875, 1827.8281, -470.85938, 1661.0469, -840, 1829.1797, 944.1328, -605.85156, 1426.1016, -739.84375, 1482.2813, -741.1406, 1568.6719, -431.46875, 1510.2031, -57.679688, 331.1797, -301.92188, 1962.0781, -1048.6172, 1958.9609, -1435.5, 2044.9922, -1243.1563, 2095, 187.00781, 2083.2969, -1818.9219, -544.3281, 524.03906, -368.14844, 524.9922, -368.15625, 525, -544.96094, 528.4297, -86.84375, 1575.1406, 380.59375, 1344.3594, 452.34375, 1392.6328, 1857.4219, 105.50781, 1597.8203, -95.25781, 1650.4766, -418.28125, 1893.0469, -1051.1797, 1692.5391, -1673.9375, 890.39844, -1810.0703, 1623.0313, -1621.4766, 910.03906, -1319.1875, 1429.7422, 643.3203, 1564.5, 327.85156, 1809.5234, 172.32031, 2095.9922, 1891.0078, 1547.0313, 969.6797, 1238.8281, 1891.9766, 1226.8438, 1153.9063, 1464.9297, 993.1328, 679.10156, 1086.7813, 1329.1563, 637.6406, 749.1406, 1158.0938, 308.53125, 711.46094, 613.9531, 1040.25, 183.54688, 1068.5703, -1330.4375, 34.5625, -1262.6563, -85.28125, 58.867188, 1042.7734, -1328.4922, -1278.3125, -1390.5781, -1351.8203, 357.9375, -1802.8984, 353.9375, -1102.8984, 202.42188, -800.75, -27.8125, -751.21875, -427.8125, -786.72656, 921.25, -890, 1402.1094, -804.60156, 920.8281, -679.25, 889.65625, -711.71094, 562.53906, -890, 808.6328, -662.4375, 248.10938, -719.52344, 575.3125, -506.89063, 287.64844, -391.2422, 2.2109375, -425.95313, -840, 1442.6406, -1991, 1122.0625, -1547.1719, 191.0625, -1475.9766, 234.5625, -1134.1406, 521.84375, -210.5, 981.1719, -472.14063, 1569.8594, -764.03125, 1445.3516, 1645.8125, -1071.3203, 1880.9766, -1401.3906, 1879.9922, -1067.5078, 1476.3516, -1279.8125, 1365.1875, -1385.4063, 867.1875, -1108.0781, 1337.5469, -1316.2969, 918.75, -989.9531, -1048.3906, 532.2422, -633.9375, 832.71094, -649.53125, 867, 233.60938, 682.53125, 134.45313, 980.97656, -179.10938, 900.10156, -234.89844, 527.1797, -1981, -1379.5, -1938, -1781.0781, -1939.2891, -1313.3828, -527.46875, 867, 1483.6172, 301.7578, 259.46094, 690.60156, 1535.1797, -1069.75, 536.3594, -992.0078, -1639.9375, -1047.3438, -1394.7891, 111.77344, -1129.1094, 194.32813, 1822.3828, 146.57813, -1646.9375, -1150.9609, -1329.7734, -128.71094, -1873.4609, -1162.0469, -1981, -630.96875, -1976.5078, -1214.1172)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7, 8, 9), PackedInt32Array(10, 11, 0, 12, 13), PackedInt32Array(12, 0, 2, 14), PackedInt32Array(15, 16, 17, 18, 19, 4, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 23, 22), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 31, 32, 11, 10), PackedInt32Array(21, 24, 33, 34, 35, 36), PackedInt32Array(25, 22, 37), PackedInt32Array(38, 25, 37), PackedInt32Array(38, 37, 39, 40), PackedInt32Array(41, 42, 43, 24, 44, 45), PackedInt32Array(45, 44, 46, 47, 48), PackedInt32Array(49, 50, 48, 47, 51), PackedInt32Array(52, 50, 49, 53), PackedInt32Array(54, 52, 53, 31), PackedInt32Array(7, 55, 56), PackedInt32Array(54, 31, 30, 57), PackedInt32Array(32, 49, 51, 11), PackedInt32Array(58, 59, 60, 61, 62, 63, 64), PackedInt32Array(65, 66, 16, 15, 67), PackedInt32Array(65, 67, 68), PackedInt32Array(69, 65, 68, 70), PackedInt32Array(71, 69, 70, 72, 73, 74), PackedInt32Array(71, 74, 63, 62), PackedInt32Array(75, 14, 2, 76, 77, 78, 79), PackedInt32Array(80, 57, 30, 81, 82), PackedInt32Array(83, 84, 85, 18, 17), PackedInt32Array(84, 83, 86, 39), PackedInt32Array(39, 86, 87), PackedInt32Array(40, 39, 87), PackedInt32Array(88, 40, 87, 89, 90), PackedInt32Array(91, 6, 5, 92, 93), PackedInt32Array(94, 95, 96, 97), PackedInt32Array(98, 99, 60, 59, 100), PackedInt32Array(80, 101, 29, 28, 97, 96), PackedInt32Array(102, 50, 103, 94, 97, 4, 19), PackedInt32Array(13, 12, 82, 81), PackedInt32Array(104, 66, 65, 90, 89), PackedInt32Array(88, 90, 105, 61), PackedInt32Array(61, 105, 62), PackedInt32Array(36, 35, 18, 85), PackedInt32Array(106, 58, 64, 8, 7, 56), PackedInt32Array(78, 107, 108, 79), PackedInt32Array(109, 33, 24, 43), PackedInt32Array(19, 43, 42, 102), PackedInt32Array(59, 110, 100), PackedInt32Array(3, 20, 4), PackedInt32Array(106, 56, 111), PackedInt32Array(112, 106, 111, 77, 113), PackedInt32Array(98, 100, 114), PackedInt32Array(113, 98, 114), PackedInt32Array(113, 114, 112), PackedInt32Array(76, 113, 77), PackedInt32Array(75, 79, 91, 93, 82), PackedInt32Array(80, 82, 93, 101), PackedInt32Array(103, 50, 52)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1988, 1913, -96, 1904, 749, 1897, 759, 1168, 1217, 1164, 1229, 1902, 2106, 1901, 2105, 187, 2055, -1243, 2094, -1829, 880, -1820, 900, -1320, 859, -1118, 364, -1113, 368, -1813, -1947, -1791, -1991, -1380, -1991, -631, -2001, 1122), PackedVector2Array(296, 717, 177, 1057, 61, 1033, -197, 974, -173, 912, 141, 993, 240, 695, 256, 700), PackedVector2Array(-461, 1651, -462, 1580, -97, 1585, -98, 1649), PackedVector2Array(-830, 1819, -830, 1453, -774, 1455, -773, 1818), PackedVector2Array(-624, 835, -613, 455, -253, 449, -246, 517, -368, 515, -553, 514, -555, 528, -538, 857, -634, 857), PackedVector2Array(395, 1342, 616, 1054, 665, 1089, 450, 1379), PackedVector2Array(-1124, 513, -1119, 187, -1399, 100, -1479, 221, -1533, 188, -1327, -115, -1276, -82, -1345, 40, -1061, 141, -1055, 435, -1058, 521), PackedVector2Array(-1934, -1299, -1646, -1139, -1392, -1338, -1343, -1280, -1641, -1059, -1869, -1171, -1964, -1219), PackedVector2Array(1890, -1071, 1891, -1406, 1639, -1621, 1692, -1661, 1949, -1431, 1952, -1059, 1898, -1061), PackedVector2Array(1413, -804, 1547, -1071, 1349, -1318, 1369, -1368, 1469, -1273, 1634, -1070, 1476, -751, 1433, -750), PackedVector2Array(1471, 981, 1340, 638, 1489, 314, 1551, 334, 1419, 643, 1534, 963), PackedVector2Array(1806, 157, 1521, -62, 1577, -420, 1639, -410, 1587, -91, 1843, 107, 1814, 141), PackedVector2Array(-420, -776, -37, -742, -7, -417, 289, -381, 580, -498, 814, -654, 888, -699, 912, -674, 932, -611, 329, -312, -77, -326, -126, -651, -433, -719), PackedVector2Array(216, -797, 539, -982, 909, -980, 911, -900, 560, -900, 252, -733)])
+parsed_geometry_type = 1
+
+[node name="Node2D" type="Node2D" unique_id=195382795]
+
+[node name="земля" type="StaticBody2D" parent="." unique_id=187004190]
+
+[node name="Sprite2D" type="Sprite2D" parent="земля" unique_id=898049875]
+modulate = Color(0.3019608, 0.16862746, 0.12156863, 1)
+position = Vector2(62.99997, 193.00005)
+scale = Vector2(7626, 4994)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="земля" unique_id=1262007652]
+position = Vector2(-2958.5, 23)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="земля" unique_id=818737126]
+position = Vector2(334.21875, 2717.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="земля" unique_id=152221245]
+modulate = Color(0.19, 0.10639999, 0.076, 1)
+position = Vector2(2955.096, -159.87248)
+scale = Vector2(-1646.1772, 4202.881)
+texture = SubResource("CanvasTexture_57qmd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="земля" unique_id=2019167191]
+modulate = Color(0.1882353, 0.105882354, 0.07450981, 1)
+position = Vector2(-2838.5537, -169.31168)
+scale = Vector2(-1609.0944, 4184.002)
+texture = SubResource("CanvasTexture_57qmd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="земля" unique_id=1340995885]
+modulate = Color(0.1882353, 0.105882354, 0.07450981, 1)
+position = Vector2(77, 2356.5)
+scale = Vector2(6450, -868.99994)
+texture = SubResource("CanvasTexture_d0u6y")
+
+[node name="Sprite2D6" type="Sprite2D" parent="земля" unique_id=1534982549]
+modulate = Color(0.1882353, 0.105882354, 0.07450981, 1)
+position = Vector2(77, -2370.5)
+scale = Vector2(6450, -1001.0002)
+texture = SubResource("CanvasTexture_d0u6y")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="земля" unique_id=316379346]
+position = Vector2(2989.5, 106)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="земля" unique_id=1346307356]
+position = Vector2(-36, -2508.5)
+shape = SubResource("RectangleShape2D_3gngh")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1453263744 groups=["Player"]]
+process_mode = 3
+light_mask = 5
+visibility_layer = 2
+z_index = 1
+script = ExtResource("1_wtcfe")
+bullet_scene = ExtResource("2_0e48y")
+upgrade_menu_scene = ExtResource("3_hqns4")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1896501589]
+zoom = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1106702298]
+modulate = Color(0.83, 0.646985, 0.3071, 1)
+self_modulate = Color(1, 0.9333334, 0, 1)
+texture_filter = 2
+position = Vector2(1.1920929e-07, -9.536743e-07)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_fcnqv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Player" unique_id=1601483606]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(15, -15)
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_fcnqv")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Player" unique_id=1475688459]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(15, 15)
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_fcnqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=638386252]
+shape = SubResource("RectangleShape2D_7numd")
+
+[node name="Muzzle" type="Marker2D" parent="Player" unique_id=1513179811]
+position = Vector2(39, 0)
+
+[node name="ShootTimer" type="Timer" parent="Player" unique_id=929003766]
+wait_time = 0.4
+one_shot = true
+
+[node name="InvulTimer" type="Timer" parent="Player" unique_id=974748259]
+wait_time = 1.5
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1797022382]
+
+[node name="HealthBar" type="ProgressBar" parent="Player/CanvasLayer" unique_id=1177423768]
+custom_minimum_size = Vector2(250, 20)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_bottom = 20.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ta5nu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d2bti")
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="Spawner" type="Node2D" parent="." unique_id=242466295]
+script = ExtResource("3_0hol4")
+enemy_scene = ExtResource("4_q6r6c")
+spitter_scene = ExtResource("6_x0ka3")
+sprinter_scene = ExtResource("7_nr8wp")
+tank_scene = ExtResource("15_d2bti")
+ghost_scene = ExtResource("16_ta5nu")
+carrier_scene = ExtResource("17_flf07")
+dodger_scene = ExtResource("18_k73cj")
+
+[node name="SpawnTimer" type="Timer" parent="Spawner" unique_id=1556032807]
+wait_time = 2.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="Spawner" unique_id=1136200080]
+position = Vector2(-2034, -1870)
+
+[node name="Marker2D2" type="Marker2D" parent="Spawner" unique_id=738735568]
+position = Vector2(2132, -1870)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawner" unique_id=2051192061]
+position = Vector2(2132, 1922)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawner" unique_id=214476132]
+position = Vector2(-2034, 1921)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawner" unique_id=1999549529]
+position = Vector2(-517.5, 553)
+
+[node name="Marker2D6" type="Marker2D" parent="Spawner" unique_id=1803953351]
+position = Vector2(1691.5, -97.5)
+
+[node name="ALL WALLS" type="Node2D" parent="." unique_id=2076518718]
+
+[node name="Wall30" parent="ALL WALLS" unique_id=763775014 instance=ExtResource("1_q6r6c")]
+modulate = Color(0.8117647, 0.8117647, 0.8117647, 1)
+self_modulate = Color(0.8117647, 0.8117647, 0.8117647, 1)
+position = Vector2(-598, 498)
+
+[node name="Wall31" parent="ALL WALLS" unique_id=957844243 instance=ExtResource("1_q6r6c")]
+modulate = Color(0.8117647, 0.8117647, 0.8117647, 1)
+self_modulate = Color(0.8117647, 0.8117647, 0.8117647, 1)
+position = Vector2(-598, 498)
+rotation = -1.5707964
+
+[node name="Wall29" parent="ALL WALLS" unique_id=2145025974 instance=ExtResource("1_q6r6c")]
+position = Vector2(1930.9998, -1421.9999)
+rotation = 2.3020892
+
+[node name="Wall28" parent="ALL WALLS" unique_id=1905930541 instance=ExtResource("1_q6r6c")]
+position = Vector2(1575, -1084)
+rotation = 0.43284166
+
+[node name="Wall24" parent="ALL WALLS" unique_id=1892741685 instance=ExtResource("1_q6r6c")]
+position = Vector2(1600, -1077.9999)
+rotation = 2.4469516
+
+[node name="Wall22" parent="ALL WALLS" unique_id=173651098 instance=ExtResource("1_q6r6c")]
+position = Vector2(-412.99997, -731.99994)
+rotation = -1.4067354
+
+[node name="Wall20" parent="ALL WALLS" unique_id=239575630 instance=ExtResource("1_q6r6c")]
+position = Vector2(-111, 1602)
+rotation = 1.5707964
+
+[node name="Wall18" parent="ALL WALLS" unique_id=645719399 instance=ExtResource("1_q6r6c")]
+position = Vector2(-1104, 157)
+
+[node name="Wall17" parent="ALL WALLS" unique_id=986481446 instance=ExtResource("1_q6r6c")]
+position = Vector2(-1078, 153.00002)
+rotation = 1.8675023
+
+[node name="Wall16" parent="ALL WALLS" unique_id=1972920297 instance=ExtResource("1_q6r6c")]
+position = Vector2(-169, 962)
+rotation = -1.3421582
+
+[node name="Wall13" parent="ALL WALLS" unique_id=1101410343 instance=ExtResource("1_q6r6c")]
+position = Vector2(875.99994, -675)
+rotation = 0.95294976
+
+[node name="Wall10" parent="ALL WALLS" unique_id=1083300546 instance=ExtResource("1_q6r6c")]
+position = Vector2(884.00006, -954)
+rotation = 1.5707964
+
+[node name="Wall9" parent="ALL WALLS" unique_id=986853689 instance=ExtResource("1_q6r6c")]
+position = Vector2(-1630, -1104)
+rotation = 2.0629792
+
+[node name="Wall3" parent="ALL WALLS" unique_id=1306020980 instance=ExtResource("1_q6r6c")]
+position = Vector2(260.00006, -758.99994)
+rotation = 4.1887903
+
+[node name="Wall" parent="ALL WALLS" unique_id=1499483357 instance=ExtResource("1_q6r6c")]
+position = Vector2(-1487, 201)
+rotation = -2.5411994
+
+[node name="Wall2" parent="ALL WALLS" unique_id=1026753532 instance=ExtResource("1_q6r6c")]
+position = Vector2(1362, 651)
+rotation = -0.38397244
+
+[node name="Wall4" parent="ALL WALLS" unique_id=1764170417 instance=ExtResource("1_q6r6c")]
+position = Vector2(1537, -70)
+rotation = -0.9110619
+
+[node name="Wall5" parent="ALL WALLS" unique_id=1994596496 instance=ExtResource("1_q6r6c")]
+position = Vector2(-1390.0001, -1307)
+rotation = 0.9110619
+
+[node name="Wall7" parent="ALL WALLS" unique_id=1375765476 instance=ExtResource("1_q6r6c")]
+position = Vector2(619, 1075)
+rotation = 0.6230825
+
+[node name="Wall8" parent="ALL WALLS" unique_id=864500034 instance=ExtResource("1_q6r6c")]
+position = Vector2(-1491, 1035)
+rotation = -0.9110619
+
+[node name="Wall11" parent="ALL WALLS" unique_id=414783544 instance=ExtResource("1_q6r6c")]
+position = Vector2(598, -478)
+rotation = 1.1990412
+
+[node name="Wall12" parent="ALL WALLS" unique_id=149625291 instance=ExtResource("1_q6r6c")]
+position = Vector2(286, -356.00003)
+rotation = 1.6790067
+
+[node name="Wall14" parent="ALL WALLS" unique_id=174199038 instance=ExtResource("1_q6r6c")]
+position = Vector2(-102, -698)
+rotation = -0.143117
+
+[node name="Wall15" parent="ALL WALLS" unique_id=223886195 instance=ExtResource("1_q6r6c")]
+position = Vector2(251, 715)
+rotation = 0.3351032
+
+[node name="Wall19" parent="ALL WALLS" unique_id=1183002664 instance=ExtResource("1_q6r6c")]
+position = Vector2(-815, 1471)
+
+[node name="Wall23" parent="ALL WALLS" unique_id=1372156334 instance=ExtResource("1_q6r6c")]
+position = Vector2(1501.9999, 337)
+rotation = 0.43109632
+
+[node name="Wall25" parent="ALL WALLS" unique_id=1589612435 instance=ExtResource("1_q6r6c")]
+position = Vector2(1907, -1413)
+
+[node name="Sprite2D" type="Sprite2D" parent="ALL WALLS" unique_id=1072370059]
+modulate = Color(0.21960784, 0.12156863, 0.08627451, 1)
+position = Vector2(-410.79324, 620.38416)
+scale = Vector2(-314.1401, -264.33926)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ALL WALLS" unique_id=221427135]
+modulate = Color(0.21960784, 0.12156863, 0.08627451, 1)
+position = Vector2(-464.95273, 792.9421)
+scale = Vector2(-204.21912, 100.13639)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ALL WALLS" unique_id=2053136761]
+modulate = Color(0.27299997, 0.7, 0.6217166, 1)
+position = Vector2(-517.5, 553)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ALL WALLS" unique_id=454830909]
+modulate = Color(0.047058824, 0.4, 0.21176471, 1)
+position = Vector2(1718, -89.00001)
+scale = Vector2(169.99998, 232)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D7" type="Sprite2D" parent="ALL WALLS" unique_id=1466008736]
+modulate = Color(0.047058824, 0.4, 0.21176471, 1)
+position = Vector2(1715.5, -264.5)
+scale = Vector2(99.000046, -118.99999)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D8" type="Sprite2D" parent="ALL WALLS" unique_id=644010176]
+modulate = Color(0.047058824, 0.4, 0.21176471, 1)
+position = Vector2(1765.0513, -340.7)
+scale = Vector2(-197.89755, 108.59998)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ALL WALLS" unique_id=1979332028]
+modulate = Color(0.27299997, 0.7, 0.6217166, 1)
+light_mask = 4
+visibility_layer = 4
+position = Vector2(1691.5001, -97.5)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Wall6" parent="ALL WALLS" unique_id=45945255 instance=ExtResource("1_q6r6c")]
+position = Vector2(1593.0001, -406.00006)
+rotation = 0.17453292
+
+[node name="ALL TORCHES" type="Node2D" parent="." unique_id=702550281]
+
+[node name="Torch" parent="ALL TORCHES" unique_id=922070674 instance=ExtResource("6_kdubu")]
+position = Vector2(134, -402.99997)
+rotation = 1.6790067
+
+[node name="Torch2" parent="ALL TORCHES" unique_id=1782793419 instance=ExtResource("6_kdubu")]
+position = Vector2(-1046, 215)
+
+[node name="Torch3" parent="ALL TORCHES" unique_id=909198006 instance=ExtResource("6_kdubu")]
+position = Vector2(161.99998, 874.99994)
+rotation = 0.33161256
+
+[node name="Torch4" parent="ALL TORCHES" unique_id=903838754 instance=ExtResource("6_kdubu")]
+position = Vector2(-1550, -1110)
+rotation = 0.9110619
+
+[node name="ALL MOX" type="Node2D" parent="." unique_id=1271284168]
+
+[node name="MOX4" parent="ALL MOX" unique_id=1382619116 instance=ExtResource("7_d21ai")]
+modulate = Color(0.748, 0.87780005, 0.88, 1)
+position = Vector2(1577, -1125)
+rotation = 1.3910275
+
+[node name="MOX17" parent="ALL MOX" unique_id=2051730994 instance=ExtResource("7_d21ai")]
+modulate = Color(0.748, 0.87780005, 0.88, 1)
+position = Vector2(1569.0002, -1189)
+rotation = 4.829326
+
+[node name="MOX2" parent="ALL MOX" unique_id=1449516137 instance=ExtResource("7_d21ai")]
+modulate = Color(0.45999998, 1, 0.73899996, 1)
+position = Vector2(272, -917)
+rotation = 0.6230825
+
+[node name="MOX33" parent="ALL MOX" unique_id=2043405246 instance=ExtResource("7_d21ai")]
+modulate = Color(0.45999998, 1, 0.73899996, 1)
+position = Vector2(224.00006, -1082)
+rotation = 0.6230825
+
+[node name="MOX35" parent="ALL MOX" unique_id=1168753486 instance=ExtResource("7_d21ai")]
+modulate = Color(0.45999998, 1, 0.73899996, 1)
+position = Vector2(191, -975)
+rotation = 0.6230825
+
+[node name="MOX34" parent="ALL MOX" unique_id=188910581 instance=ExtResource("7_d21ai")]
+modulate = Color(0.45999998, 1, 0.73899996, 1)
+position = Vector2(447, -942.9999)
+rotation = 2.3020892
+
+[node name="MOX" parent="ALL MOX" unique_id=392150783 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(-1391, 1092)
+rotation = 1.0908308
+
+[node name="MOX28" parent="ALL MOX" unique_id=1329966024 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(-1197.0001, 1064.0001)
+rotation = 1.0908308
+
+[node name="MOX29" parent="ALL MOX" unique_id=1798515143 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(-1314, 1392)
+rotation = 1.0908308
+
+[node name="MOX30" parent="ALL MOX" unique_id=2072149466 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(-1222.0001, 919)
+rotation = -1.0210177
+
+[node name="MOX31" parent="ALL MOX" unique_id=1372359743 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(-1112, 1135)
+rotation = -0.3577925
+
+[node name="MOX3" parent="ALL MOX" unique_id=1295507682 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(1372, 603)
+rotation = 1.43117
+
+[node name="MOX24" parent="ALL MOX" unique_id=1612460113 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(1502.0001, 843)
+rotation = 1.43117
+
+[node name="MOX25" parent="ALL MOX" unique_id=1994411933 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(1197.0001, 751.9999)
+rotation = 1.43117
+
+[node name="MOX26" parent="ALL MOX" unique_id=1196661382 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(1291, 905.00006)
+rotation = -0.082030475
+
+[node name="MOX27" parent="ALL MOX" unique_id=1172820891 instance=ExtResource("7_d21ai")]
+modulate = Color(0.89, 0.89, 0.89, 1)
+position = Vector2(1482.0001, 932.0001)
+rotation = -0.7853982
+
+[node name="MOX5" parent="ALL MOX" unique_id=1575595671 instance=ExtResource("7_d21ai")]
+
+[node name="MOX6" parent="ALL MOX" unique_id=441611193 instance=ExtResource("7_d21ai")]
+position = Vector2(241, -105)
+
+[node name="MOX7" parent="ALL MOX" unique_id=1068472771 instance=ExtResource("7_d21ai")]
+position = Vector2(-212.00002, -112.000015)
+rotation = 5.899213
+
+[node name="MOX8" parent="ALL MOX" unique_id=1705272261 instance=ExtResource("7_d21ai")]
+position = Vector2(120.000015, 148.00003)
+rotation = 5.899213
+
+[node name="MOX9" parent="ALL MOX" unique_id=751916104 instance=ExtResource("7_d21ai")]
+position = Vector2(-31.999985, 191.00003)
+rotation = 5.899213
+
+[node name="MOX10" parent="ALL MOX" unique_id=461822423 instance=ExtResource("7_d21ai")]
+position = Vector2(-300, 245)
+rotation = 5.899213
+
+[node name="MOX11" parent="ALL MOX" unique_id=1470068043 instance=ExtResource("7_d21ai")]
+position = Vector2(191, 481)
+rotation = 4.2586036
+
+[node name="MOX13" parent="ALL MOX" unique_id=291340321 instance=ExtResource("7_d21ai")]
+position = Vector2(181.99998, -216.99998)
+rotation = 4.2586036
+
+[node name="MOX14" parent="ALL MOX" unique_id=1578461382 instance=ExtResource("7_d21ai")]
+position = Vector2(-26, -308)
+rotation = 0.6806784
+
+[node name="MOX12" parent="ALL MOX" unique_id=1211733908 instance=ExtResource("7_d21ai")]
+modulate = Color(0.78319997, 0.88288, 0.89, 1)
+position = Vector2(361, 1201)
+rotation = -0.43109632
+
+[node name="MOX15" parent="ALL MOX" unique_id=2145681098 instance=ExtResource("7_d21ai")]
+modulate = Color(0.55100006, 0.95, 0.79705006, 1)
+position = Vector2(-1581, -1104)
+rotation = 1.1030481
+
+[node name="MOX16" parent="ALL MOX" unique_id=306233172 instance=ExtResource("7_d21ai")]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-1179, 99)
+rotation = 2.4469516
+
+[node name="MOX36" parent="ALL MOX" unique_id=1625848720 instance=ExtResource("7_d21ai")]
+modulate = Color(0.61, 1, 0.805, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(1498.9999, -143)
+rotation = 0.35081118
+
+[node name="MOX37" parent="ALL MOX" unique_id=783896087 instance=ExtResource("7_d21ai")]
+modulate = Color(0.6117647, 1, 0.8039216, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(1498.9999, -143)
+rotation = 0.35081118
+
+[node name="MOX18" parent="ALL MOX" unique_id=1810708873 instance=ExtResource("7_d21ai")]
+modulate = Color(1, 0.97, 0.97, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-716, -1346)
+rotation = -0.9110619
+
+[node name="MOX32" parent="ALL MOX" unique_id=1964703812 instance=ExtResource("7_d21ai")]
+modulate = Color(1, 0.97, 0.97, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-838, -1307)
+rotation = -0.9110619
+
+[node name="MOX22" parent="ALL MOX" unique_id=929408346 instance=ExtResource("7_d21ai")]
+modulate = Color(1, 0.97, 0.97, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-894, -1492)
+rotation = 5.180137
+
+[node name="MOX23" parent="ALL MOX" unique_id=2072521564 instance=ExtResource("7_d21ai")]
+modulate = Color(1, 0.97, 0.97, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-389, -1315)
+rotation = 3.1730087
+
+[node name="MOX19" parent="ALL MOX" unique_id=533467209 instance=ExtResource("7_d21ai")]
+modulate = Color(1, 0.97, 0.97, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-995, -1253)
+rotation = -0.9110619
+
+[node name="MOX20" parent="ALL MOX" unique_id=311099002 instance=ExtResource("7_d21ai")]
+modulate = Color(1, 0.97, 0.97, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-1076.0001, -986)
+rotation = -0.9110619
+
+[node name="MOX21" parent="ALL MOX" unique_id=16657008 instance=ExtResource("7_d21ai")]
+modulate = Color(1, 0.97, 0.97, 1)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-683.99994, -1087)
+rotation = 1.0524335
+
+[node name="ALL ROCKS" type="Node2D" parent="." unique_id=202860229]
+
+[node name="StaticBody2D4" parent="ALL ROCKS" unique_id=960233447 instance=ExtResource("8_rj586")]
+position = Vector2(1168, 220)
+rotation = 1.0070549
+
+[node name="StaticBody2D" parent="ALL ROCKS" unique_id=985207944 instance=ExtResource("8_rj586")]
+position = Vector2(592, -605.00006)
+rotation = 1.7749999
+
+[node name="StaticBody2D2" parent="ALL ROCKS" unique_id=972820673 instance=ExtResource("8_rj586")]
+position = Vector2(-348, 95)
+
+[node name="StaticBody2D3" parent="ALL ROCKS" unique_id=13732109 instance=ExtResource("8_rj586")]
+position = Vector2(1092, -306)
+
+[node name="StaticBody2D5" parent="ALL ROCKS" unique_id=184277016 instance=ExtResource("8_rj586")]
+position = Vector2(454, 509)
+rotation = -1.4870205
+
+[node name="StaticBody2D6" parent="ALL ROCKS" unique_id=789081319 instance=ExtResource("8_rj586")]
+position = Vector2(-778, 1133)
+rotation = -2.974041
+
+[node name="StaticBody2D7" parent="ALL ROCKS" unique_id=404279489 instance=ExtResource("8_rj586")]
+position = Vector2(185, 1655)
+rotation = -0.30019662
+
+[node name="PITS" type="Node2D" parent="." unique_id=1853712317]
+
+[node name="StaticBody2D" parent="PITS" unique_id=1177453175 instance=ExtResource("9_4d7sh")]
+position = Vector2(628.00006, -1647)
+rotation = 1.5707964
+scale = Vector2(7.5, 7.5)
+
+[node name="StaticBody2D2" parent="PITS" unique_id=1985099942 instance=ExtResource("9_4d7sh")]
+position = Vector2(991.00006, 1699.0001)
+rotation = 4.712389
+scale = Vector2(7.5, 7.5)
+
+[node name="ALL MUD" type="Node2D" parent="." unique_id=947239189]
+
+[node name="Mud" parent="ALL MUD" unique_id=1889748145 instance=ExtResource("10_ir8iy")]
+position = Vector2(-932, 204)
+rotation = 0.23911011
+scale = Vector2(1.4, 1.4)
+
+[node name="Mud5" parent="ALL MUD" unique_id=132531767 instance=ExtResource("10_ir8iy")]
+position = Vector2(-1533.9999, -362.9999)
+rotation = -0.6684611
+scale = Vector2(1.6, 1.6)
+
+[node name="Mud2" parent="ALL MUD" unique_id=2098650759 instance=ExtResource("10_ir8iy")]
+position = Vector2(953, -547)
+rotation = -0.5270894
+scale = Vector2(1.5, 1.5)
+
+[node name="Mud8" parent="ALL MUD" unique_id=227571035 instance=ExtResource("10_ir8iy")]
+position = Vector2(-58.999973, -1688)
+rotation = 0.19198622
+scale = Vector2(1.5, 1.5)
+
+[node name="Mud4" parent="ALL MUD" unique_id=1216392592 instance=ExtResource("10_ir8iy")]
+position = Vector2(505.00006, 673)
+rotation = 0.38397244
+scale = Vector2(1.5, 1.5)
+
+[node name="Mud6" parent="ALL MUD" unique_id=18110108 instance=ExtResource("10_ir8iy")]
+position = Vector2(-677.00006, 1307)
+rotation = -0.47822022
+scale = Vector2(1.5, 1.5)
+
+[node name="Mud7" parent="ALL MUD" unique_id=1223786640 instance=ExtResource("10_ir8iy")]
+position = Vector2(1829.0001, 1727.0001)
+rotation = -2.8763027
+scale = Vector2(1.5, 1.5)
+
+[node name="Mud3" parent="ALL MUD" unique_id=2025532735 instance=ExtResource("10_ir8iy")]
+position = Vector2(-1619, -1605)
+rotation = -0.143117
+scale = Vector2(1.5, 1.5)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1933696767]
+
+[node name="BossSpawnPoint" type="Marker2D" parent="Node2D" unique_id=384510889 groups=["boss_spawn_group"]]
+position = Vector2(0, 10)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1322851340]
+process_mode = 3
+stream = ExtResource("13_0h7mo")
+autoplay = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1064909023]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_57qmd")
+
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]

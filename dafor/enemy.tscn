@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b0ca0hjxayf2"]
+
+[ext_resource type="Script" uid="uid://wvcpesp4ga4n" path="res://enemy.gd" id="1_7k104"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yf5fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(60, 60)
+
+[node name="enemy" type="CharacterBody2D" unique_id=376352714 groups=["enemies"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_7k104")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=132315714 groups=["enemies"]]
+modulate = Color(0.87058824, 0, 0, 1)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25247456]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(60, 60)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=292035097]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(14.5, -15.5)
+scale = Vector2(21, 21.000002)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2110904882]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(13, 15.5)
+scale = Vector2(24, 21)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=4831571]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2048885043]
+visibility_layer = 0
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1497883186]

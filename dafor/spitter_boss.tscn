@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bua6c4f5r2s1e"]
+
+[ext_resource type="Script" uid="uid://druysc4x8us77" path="res://spitter_boss.gd" id="1_uyvoc"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1489289051 groups=["boss_spawn_group", "enemies"]]
+light_mask = 4
+visibility_layer = 3
+z_index = 2
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_uyvoc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554575130]
+modulate = Color(0.08627451, 0.6627451, 0.2784314, 1)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1132834794]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(11.4, 15)
+scale = Vector2(18, 17.999998)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1050169248]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(12.799999, -13.999999)
+scale = Vector2(25.599998, -23.999996)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402473817]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=981473702]
+
+[node name="Muzzle2" type="Marker2D" parent="." unique_id=294245245]
+position = Vector2(32.4, 2.9802322e-08)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=554159855]
+
+[node name="IFrameTimer" type="Timer" parent="." unique_id=589690250]
+wait_time = 0.15
+one_shot = true

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cw2emu4dra1m8"]
+
+[ext_resource type="Script" uid="uid://dajb5wa22i28a" path="res://sprinter.gd" id="1_01hhg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yf5fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(60, 60)
+
+[node name="enemy" type="CharacterBody2D" unique_id=376352714 groups=["enemies"]]
+z_index = 1
+scale = Vector2(0.7, 0.7)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_01hhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=132315714 groups=["enemies"]]
+modulate = Color(1, 0.4666667, 0, 1)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25247456]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(60, 60)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=292035097]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(14.071429, -13.5)
+scale = Vector2(26.142859, 27.000002)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2110904882]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(12.857143, 11.071428)
+scale = Vector2(14.285713, 12.142856)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=4831571]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2048885043 groups=["enemies"]]
+visibility_layer = 0
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=480531684]

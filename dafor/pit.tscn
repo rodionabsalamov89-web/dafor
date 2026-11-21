@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cgyffsdnspryr"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(32.66664, 19.177763)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1177453175 groups=["Pit"]]
+light_mask = 6
+scale = Vector2(15, 15)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=477593598]
+modulate = Color(0, 0, 0, 0.94509804)
+position = Vector2(19.366667, 0)
+scale = Vector2(78, 39.628)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=346664811]
+modulate = Color(0, 0, 0, 0.57254905)
+position = Vector2(19.3, 0)
+scale = Vector2(88, 49.661)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1361499622]
+modulate = Color(0, 0, 0, 0.4392157)
+position = Vector2(19.266665, 0.033332754)
+scale = Vector2(97.99999, 57.533337)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1861447416]
+position = Vector2(19.266676, 0.03333108)
+scale = Vector2(3.0000021, 3.0000021)
+shape = SubResource("RectangleShape2D_g4v7s")

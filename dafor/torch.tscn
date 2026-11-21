@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://upf2m2d45lh7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3gngh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fcnqv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7numd"]
+
+[sub_resource type="Animation" id="Animation_5w7kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 1.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_pa17o"]
+resource_name = "flick"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.080417335, 0.2, 0.3005467),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-2.3, -2), Vector2(0.8, 1.7), Vector2(4, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1567, 0.24610686, 0.38),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, 3), Vector2(0.3, 0.7), Vector2(-0.4500227, 1.4500227)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1444"]
+_data = {
+&"RESET": SubResource("Animation_5w7kb"),
+&"flick": SubResource("Animation_pa17o")
+}
+
+[node name="Torch" type="StaticBody2D" unique_id=922070674]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824228903]
+modulate = Color(0.41, 0.19256333, 0.057399992, 1)
+position = Vector2(0.75, 0.75)
+scale = Vector2(40, 40)
+texture = SubResource("CanvasTexture_3gngh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=40901914]
+modulate = Color(0.82, 0, 0.054666612, 1)
+position = Vector2(0.3, 0.7)
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_fcnqv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=341296081]
+modulate = Color(1, 0.40784314, 0, 1)
+position = Vector2(0.8, 1.7)
+scale = Vector2(10.999999, 10)
+texture = SubResource("CanvasTexture_7numd")
+
+[node name="flicker" type="AnimationPlayer" parent="." unique_id=499147897]
+libraries/ = SubResource("AnimationLibrary_s1444")
+autoplay = &"flick"
+speed_scale = 0.5

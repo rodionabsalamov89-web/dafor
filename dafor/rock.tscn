@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cmocpf7u6h5fu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(55, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(105, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(77, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(32, 42)
+
+[node name="ROCK" type="StaticBody2D" unique_id=985207944 groups=["wall"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954417976]
+modulate = Color(0.3882353, 0.3882353, 0.3882353, 1)
+position = Vector2(27.5, 18.5)
+scale = Vector2(55, 39)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=574114297]
+modulate = Color(0.3882353, 0.3882353, 0.3882353, 1)
+position = Vector2(32.499996, 32)
+scale = Vector2(105.00001, 39.999996)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=561645666]
+modulate = Color(0.3882353, 0.3882353, 0.3882353, 1)
+position = Vector2(46.5, 67.5)
+scale = Vector2(77, -31.000006)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=46968518]
+modulate = Color(0.3882353, 0.3882353, 0.3882353, 1)
+position = Vector2(84.5, 51)
+scale = Vector2(65, -42.000004)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=328371541]
+position = Vector2(27.5, 25.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1673422103]
+position = Vector2(32.5, 32)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=792467632]
+position = Vector2(46.5, 67)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=479599648]
+position = Vector2(101, 51)
+shape = SubResource("RectangleShape2D_d0u6y")

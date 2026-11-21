@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bh4pr6swpvgbt"]
+
+[ext_resource type="Script" uid="uid://bbfcx1onclt2s" path="res://carrier.gd" id="1_k1mjw"]
+[ext_resource type="PackedScene" uid="uid://b0ca0hjxayf2" path="res://enemy.tscn" id="2_67fjj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yf5fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(60, 60)
+
+[node name="Carrier" type="CharacterBody2D" unique_id=376352714 groups=["enemies"]]
+z_index = 1
+scale = Vector2(1.3, 1.3)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_k1mjw")
+minion_scene = ExtResource("2_67fjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=132315714 groups=["enemies"]]
+modulate = Color(0.53533316, 0, 0.73, 1)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25247456]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(60, 60)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=292035097]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(13.00905, -12.624434)
+scale = Vector2(20.135746, 19.366516)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2110904882]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(13.82353, 14.004524)
+scale = Vector2(25.294117, 24.932127)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=4831571]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2048885043]
+visibility_layer = 0
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1497883186]

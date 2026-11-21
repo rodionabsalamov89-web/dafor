@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b6aosfkf52s1j"]
+
+[ext_resource type="Script" uid="uid://b5b16tj2phagi" path="res://bullet.gd" id="1_v7oki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(16, 20)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yf5fn"]
+
+[node name="Bullet" type="Area2D" unique_id=1252713827 groups=["player_bullet"]]
+light_mask = 5
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_v7oki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=445061249]
+rotation = 1.5707964
+scale = Vector2(1.25, 1.25)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=564700519]
+modulate = Color(0, 0.8666668, 1, 1)
+position = Vector2(4.4703484e-07, 0)
+rotation = 1.5707964
+scale = Vector2(20, 25)
+texture = SubResource("CanvasTexture_yf5fn")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=59411366]
+position = Vector2(-10, 0)
+target_position = Vector2(25, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

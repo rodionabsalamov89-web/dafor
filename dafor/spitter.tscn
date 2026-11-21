@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dnyi7h6g6pd2w"]
+
+[ext_resource type="Script" uid="uid://c1awnkjn7xhcq" path="res://spitter.gd" id="1_3xeah"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1489289051 groups=["enemies"]]
+light_mask = 4
+visibility_layer = 3
+script = ExtResource("1_3xeah")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554575130]
+modulate = Color(0.26999998, 1, 0.416, 1)
+scale = Vector2(60, 60)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1132834794]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9.500001, 10.499999)
+scale = Vector2(31.000002, 26.999998)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1050169248]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5.0000005, -14.999999)
+scale = Vector2(22.000002, 16.000002)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402473817]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=981473702]
+
+[node name="Muzzle2" type="Marker2D" parent="." unique_id=294245245]
+position = Vector2(64, 0)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=554159855]
