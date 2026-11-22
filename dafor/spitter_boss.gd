@@ -2,7 +2,7 @@ extends CharacterBody2D
 @export var spit_scene: PackedScene = preload("res://spit.tscn")
 
 var speed: float = 150.0
-var health: float = 200.0
+@export var health: float = 200.0
 var attack_range: float = 500.0 # Дистанция, на которой он останавливается и плюет
 var can_take_damage: bool = true
 var knockback_immune: bool = true
@@ -64,12 +64,14 @@ func _on_attack_timer_timeout() -> void:
 			spit.boss_ref = self
 
 func take_damage(amount: float) -> void:
-	health -= amount
+	if is_dead:
+		return
+	health = max(0.0, health - amount)
 	if health <= 100.0 and not half_hp_triggered:
 		half_hp_triggered = true
 		trigger_half_hp_explosion()
-		if health <= 0:
-			die()
+	if health <= 0:
+		die()
 			
 func trigger_half_hp_explosion() -> void:
 	attack_timer.wait_time *= 0.50

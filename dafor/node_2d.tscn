@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cgyffsdnspryr" path="res://pit.tscn" id="9_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://dddgg67gcffrf" path="res://mud.tscn" id="10_ir8iy"]
 [ext_resource type="AudioStream" uid="uid://ccpokkrpn81h5" path="res://jurassic park.mp3" id="13_0h7mo"]
+[ext_resource type="PackedScene" uid="uid://bua6c4f5r2s1e" path="res://spitter_boss.tscn" id="13_fs4d3"]
 [ext_resource type="PackedScene" uid="uid://daui1ishhu4pk" path="res://tank.tscn" id="15_d2bti"]
 [ext_resource type="PackedScene" uid="uid://dx4qxrxixkdnv" path="res://ghost.tscn" id="16_ta5nu"]
 [ext_resource type="PackedScene" uid="uid://bh4pr6swpvgbt" path="res://carrier.tscn" id="17_flf07"]
@@ -674,5 +675,9 @@ autoplay = true
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1064909023]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_57qmd")
+
+[node name="Node2D2" parent="." unique_id=1489289051 instance=ExtResource("13_fs4d3")]
+position = Vector2(211, 14)
+health = 200.0
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
