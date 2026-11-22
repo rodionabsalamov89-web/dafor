@@ -189,7 +189,7 @@ dodger_scene = ExtResource("18_k73cj")
 mud_spitter_scene = ExtResource("19_rjqkl")
 
 [node name="SpawnTimer" type="Timer" parent="Spawner" unique_id=1556032807]
-wait_time = 2.25
+wait_time = 3.5
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="Spawner" unique_id=1136200080]

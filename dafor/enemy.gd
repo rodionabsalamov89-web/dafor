@@ -62,10 +62,10 @@ func die():
 			player.boss_spawned = true
 			call_deferred("spawn_boss")
 			
-		if player.kills_count >= 100 and not speed_boss_spawned:
+		if player.kills_count >= 90 and not speed_boss_spawned:
 			speed_boss_spawned = true
 			call_deferred("spawn_speed_boss")
-		if player.kills_count >= 160 and not spitter_boss_spawned:
+		if player.kills_count >= 140 and not spitter_boss_spawned:
 			spitter_boss_spawned = true
 			call_deferred("spawn_spitter_boss")
 			

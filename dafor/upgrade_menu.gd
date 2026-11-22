@@ -13,7 +13,7 @@ var ability_requirements = {
 	"big_shot": 20,
 	"crit punch": 30,
 	"knockback": 40,
-	"berserk": 60,
+	"berserk": 50,
 	"ricochet": 40,
 	"chain_lightning": 55,
 	"passive_regen": 35,
