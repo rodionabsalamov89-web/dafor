@@ -3,10 +3,9 @@ extends CharacterBody2D
 @export var max_health = 2 #хп врага
 @onready var attack_zone: Area2D = $Area2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-
+var is_dead: bool = false
 var current_health: float
 var player = null
-static var boss_spawned: bool = false
 
 func _ready():
 	current_health = max_health
@@ -44,8 +43,11 @@ func take_damage(amount: float):
 		die()
 
 func die():
-	player = get_tree().get_first_node_in_group("Player")
+	if is_dead:
+		return
+	is_dead = true
 	
+	player = get_tree().get_first_node_in_group("Player")
 	if player:
 		if randf() <= player.vampire_chance:
 			player.heal(1)
@@ -53,5 +55,3 @@ func die():
 		player.kills_count += 1
 			
 		queue_free()
-		
-				

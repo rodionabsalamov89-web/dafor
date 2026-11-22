@@ -12,7 +12,7 @@ visibility_layer = 3
 script = ExtResource("1_3xeah")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554575130]
-modulate = Color(0.26999998, 1, 0.416, 1)
+modulate = Color(0.21059997, 0.78, 0.32448, 1)
 scale = Vector2(60, 60)
 texture = SubResource("CanvasTexture_g4v7s")
 

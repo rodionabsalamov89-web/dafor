@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var attack_zone: Area2D = $Area2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var i_frame_timer: Timer = $IFrameTimer
-
+var is_dead: bool = false
 var current_health: float
 var player = null
 var knockback_immune: bool = true
@@ -49,6 +49,9 @@ func take_damage(amount: float):
 		die()
 
 func die():
+	if is_dead:
+		return
+	is_dead = true
 	player = get_tree().get_first_node_in_group("Player")
 	if player:
 		if randf() <= player.vampire_chance:

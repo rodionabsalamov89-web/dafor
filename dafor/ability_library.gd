@@ -40,7 +40,5 @@ static func apply_ability(ability_id: String, player: CharacterBody2D) -> void:
 			pass
 		"passive_regen":
 			pass
-		"no":
-			pass
 		"boomerang":
 			pass

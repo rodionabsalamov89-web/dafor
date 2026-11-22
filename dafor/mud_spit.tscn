@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://qyc6lehmcgm2"]
+
+[ext_resource type="Script" uid="uid://cwxkjkpgjcoed" path="res://mud_spit.gd" id="1_q5y8v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="MudSpit" type="Area2D" unique_id=1557541914]
+script = ExtResource("1_q5y8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1674806799]
+modulate = Color(0.37409997, 0.1682, 0.58, 1)
+scale = Vector2(40, 40)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=131756911]
+modulate = Color(0.4386, 0.19720002, 0.68, 1)
+scale = Vector2(30, 30)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=713059459]
+modulate = Color(0.50955, 0.22910002, 0.79, 1)
+scale = Vector2(15, 15)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1555784129]
+modulate = Color(0.23865, 0.107300006, 0.37, 1)
+position = Vector2(-11.5, 10.500001)
+scale = Vector2(12.999998, 11.000001)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1766263888]
+modulate = Color(0.23865, 0.107300006, 0.37, 1)
+position = Vector2(10.905053, -11.500001)
+scale = Vector2(9.810105, 11.000001)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=704484762]
+modulate = Color(0.23865, 0.107300006, 0.37, 1)
+position = Vector2(13.937752, 12.759383)
+scale = Vector2(-6.9561462, 6.481237)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1309757800]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

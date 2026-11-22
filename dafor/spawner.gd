@@ -7,6 +7,7 @@ extends Node2D
 @export var ghost_scene: PackedScene
 @export var carrier_scene: PackedScene
 @export var dodger_scene: PackedScene
+@export var mud_spitter_scene: PackedScene
 var player = null
 
 func _ready():
@@ -36,6 +37,8 @@ func _on_spawn_timer_timeout():
 				selected_scene = carrier_scene
 			elif roll < 0.62 and dodger_scene:
 				selected_scene = dodger_scene
+			elif  roll < 0.72 and mud_spitter_scene:
+				selected_scene = mud_spitter_scene
 			else:
 				selected_scene = enemy_scene
 			if selected_scene:

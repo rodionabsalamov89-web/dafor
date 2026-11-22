@@ -18,6 +18,24 @@ modulate = Color(0.08627451, 0.6627451, 0.2784314, 1)
 scale = Vector2(60, 60)
 texture = SubResource("CanvasTexture_g4v7s")
 
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1579955349]
+modulate = Color(0.074099995, 0.57, 0.23940007, 1)
+position = Vector2(1.3999991, 15.199999)
+scale = Vector2(23.599998, 24.799997)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=147233708]
+modulate = Color(0.105299994, 0.81, 0.3402001, 1)
+position = Vector2(-13.999999, -17.2)
+scale = Vector2(15.199999, -15.200002)
+texture = SubResource("CanvasTexture_g4v7s")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=304822615]
+modulate = Color(0.071499996, 0.55, 0.23100008, 1)
+position = Vector2(12.702091, -13.171962)
+scale = Vector2(-30.455923, 28.66282)
+texture = SubResource("CanvasTexture_g4v7s")
+
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1132834794]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(11.4, 15)
@@ -26,8 +44,8 @@ texture = SubResource("CanvasTexture_g4v7s")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1050169248]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(12.799999, -13.999999)
-scale = Vector2(25.599998, -23.999996)
+position = Vector2(12.199999, -13)
+scale = Vector2(24.399998, -21.999998)
 texture = SubResource("CanvasTexture_g4v7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402473817]

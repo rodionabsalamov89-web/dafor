@@ -8,7 +8,7 @@ var can_take_damage: bool = true
 var player: Node2D = null
 var is_dashing = false
 var knockback_immune: bool = true
-
+var is_dead: bool = false
 @onready var i_frame_timer: Timer = $IFrameTimer
 @onready var sprite: Sprite2D = $Sprite2D
 @export var tank_enemy_scene: PackedScene
@@ -54,6 +54,9 @@ func take_damage(amount: int) -> void:
 	i_frame_timer.start()
 
 func die() -> void:
+	if is_dead:
+		return
+	is_dead = true
 	var player_node = get_tree().get_first_node_in_group("player")
 	if player_node:
 		player_node.kills_count += 30

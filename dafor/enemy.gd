@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var max_health = 3 #хп врага
 @onready var attack_zone: Area2D = $Area2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-
+var is_dead: bool = false
 var current_health: float
 var player = null
 static var boss_spawned: bool = false
@@ -48,6 +48,9 @@ func take_damage(amount: float):
 		die()
 
 func die():
+	if is_dead:
+		return
+	is_dead = true
 	player = get_tree().get_first_node_in_group("Player")
 	if player:
 		if randf() <= player.vampire_chance:
@@ -62,7 +65,7 @@ func die():
 		if player.kills_count >= 100 and not speed_boss_spawned:
 			speed_boss_spawned = true
 			call_deferred("spawn_speed_boss")
-		if player.kills_count >= 0 and not spitter_boss_spawned:
+		if player.kills_count >= 160 and not spitter_boss_spawned:
 			spitter_boss_spawned = true
 			call_deferred("spawn_spitter_boss")
 			

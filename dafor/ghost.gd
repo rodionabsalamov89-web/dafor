@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 130.0 #скорость врага
 @export var max_health = 5.0 #хп врага
 @onready var attack_zone: Area2D = $Area2D
-
+var is_dead: bool = false
 var current_health: float
 var player = null
 
@@ -40,6 +40,9 @@ func take_damage(amount: float):
 		die()
 
 func die():
+	if is_dead:
+		return
+	is_dead = true
 	player = get_tree().get_first_node_in_group("Player")
 	if player:
 		if randf() <= player.vampire_chance:

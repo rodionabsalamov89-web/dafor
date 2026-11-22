@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @export var minion_scene: PackedScene
 @export var minion_count: int = 5
-
+var is_dead: bool = false
 var current_health: float
 var player = null
 

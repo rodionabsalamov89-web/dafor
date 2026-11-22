@@ -1,6 +1,6 @@
 extends CanvasLayer
 var player_ref: CharacterBody2D
-var ability_pool: Array[String] = ["triple_shot", "coffee_boost", "fast_trigger", "clean_boots", "heavy_bullet", "piercing_shot", "vampirism", "big_shot", "crit punch", "knockback", "berserk", "ricochet", "chain_lightning", "passive_regen", "no", "boomerang"]
+var ability_pool: Array[String] = ["triple_shot", "coffee_boost", "fast_trigger", "clean_boots", "heavy_bullet", "piercing_shot", "vampirism", "big_shot", "crit punch", "knockback", "berserk", "ricochet", "chain_lightning", "passive_regen", "boomerang"]
 var current_choices: Array[String] = []
 var ability_requirements = {
 	"clean_boots": 10,
@@ -15,9 +15,8 @@ var ability_requirements = {
 	"knockback": 40,
 	"berserk": 60,
 	"ricochet": 40,
-	"chain_lightning": 45,
+	"chain_lightning": 55,
 	"passive_regen": 35,
-	"no": 10,
 	"boomerang": 50
 	}
 	
@@ -144,7 +143,6 @@ func get_ability_name(id: String) -> String:
 		"ricochet": return "Рикошет\n(Ваши пули отскакивают)"
 		"chain_lightning": return "Цепная реакция\n(Название говорит само за себя)"
 		"passive_regen": return "Пассивное лечение\n(+1 хп раз в 35 секунд)"
-		"no": return "Ничего\n(Оно ничего не делает)"
 		"boomerang": return "Бумеранг\n(Ваши снаряды возвращаются к вам)"
 		_: return id
 		

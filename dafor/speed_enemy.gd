@@ -15,7 +15,7 @@ var is_dodging: bool = false
 var can_dodge: bool = true
 var dodge_direction: Vector2 = Vector2.ZERO
 var knockback_immune: bool = true
-
+var is_dead: bool = false
 var current_health: float
 var player = null
 
@@ -63,6 +63,10 @@ func take_damage(amount: float):
 		die()
 	
 func die():
+	if is_dead:
+		return
+	is_dead = true
+	
 	player = get_tree().get_first_node_in_group("Player")
 	if player:
 		if randf() <= player.vampire_chance:

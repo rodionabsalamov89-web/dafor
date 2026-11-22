@@ -4,7 +4,7 @@ extends CharacterBody2D
 var speed: float = 120.0
 var health: float = 7.0
 var attack_range: float = 500.0 # Дистанция, на которой он останавливается и плюет
-
+var is_dead: bool = false
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var attack_timer = $AttackTimer
 @onready var muzzle = $Muzzle2
@@ -49,6 +49,10 @@ func take_damage(amount: float) -> void:
 		die()
 
 func die() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	
 	if player:
 		player.kills_count += 5
 	queue_free()
