@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var spit_scene: PackedScene = preload("res://spit.tscn")
 
-var speed: float = 150.0
+var speed: float = 230.0
 @export var health: float = 800.0
 var attack_range: float = 600.0 # Дистанция, на которой он останавливается и плюет
 var can_take_damage: bool = true
@@ -96,8 +96,9 @@ func die() -> void:
 		return
 	is_dead = true
 	if player:
-		player.kills_count += 45
-		player.total_score += 45
+		player.kills_count += 30
+		player.total_score += 30
+		player.update_kills_ui()
 	queue_free()
 
 func _on_i_frame_timer_timeout() -> void:

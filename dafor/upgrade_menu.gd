@@ -4,8 +4,8 @@ var ability_pool: Array[String] = ["triple_shot", "coffee_boost", "fast_trigger"
 var current_choices: Array[String] = []
 var ability_requirements = {
 	"clean_boots": 10,
-	"coffee_boost": 15,
-	"triple_shot": 45,
+	"coffee_boost": 25,
+	"triple_shot": 40,
 	"fast_trigger": 30,
 	"heavy_bullet": 5,
 	"piercing_shot": 30,
@@ -15,14 +15,14 @@ var ability_requirements = {
 	"knockback": 20,
 	"berserk": 45,
 	"ricochet": 40,
-	"chain_lightning": 60,
+	"chain_lightning": 50,
 	"passive_regen": 25,
 	"boomerang": 40
 	}
 	
 
 func _ready() -> void:
-	visible = false	
+	visible = false
 	var btn_1 = find_child("Button1") as Button
 	var btn_2 = find_child("Button2") as Button
 	var btn_3 = find_child("Button3") as Button

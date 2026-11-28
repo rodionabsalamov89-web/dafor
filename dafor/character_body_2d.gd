@@ -23,6 +23,10 @@ var regen_timer: float = 0.0
 var total_score: int = 0
 var speed_boss_spawned: bool = false
 var spitter_boss_spawned: bool = false
+var kills_count: int = 0:
+	set(value):
+		kills_count = value
+		update_kills_ui()
 
 
 func _physics_process(_delta) -> void:
@@ -41,7 +45,7 @@ var menu_instance: CanvasLayer
 @onready var muzzle = $Muzzle
 @onready var shoot_timer = $ShootTimer
 @onready var health_bar: ProgressBar = $CanvasLayer/HealthBar
-
+@onready var kills_label: Label = $CanvasLayer/KillsLabel
 func _process(_delta):
 	if Input.is_action_just_pressed("open_shop"):
 		if menu_instance:
@@ -124,6 +128,11 @@ func _ready() -> void:
 	add_to_group("player")
 	
 	update_health_bar()
+	update_kills_ui()
+
+func update_kills_ui():
+	if kills_label:
+		kills_label.text = str(kills_count)
 	
 func take_damage(amount: int):
 	
@@ -169,8 +178,6 @@ func unlock_ability(ability_id: String) -> void:
 	active_abilities.append(ability_id)
 	
 	AbilityLibrary.apply_ability(ability_id, self)
-
-var kills_count: int = 0
 
 func update_health_bar():
 	if health_bar:

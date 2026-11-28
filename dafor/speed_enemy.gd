@@ -78,6 +78,7 @@ func die():
 		
 		player.kills_count += 20
 		player.total_score += 20
+		player.update_kills_ui()
 		
 		if minion_scene:
 			for i in range(minion_count):

@@ -55,15 +55,16 @@ func die():
 		
 		player.kills_count += 1
 		player.total_score += 1
+		player.update_kills_ui()
 		
-		if player.total_score >= 70 and not player.get("boss_spawned"):
+		if player.total_score >= 150 and not player.get("boss_spawned"):
 			player.boss_spawned = true
 			call_deferred("spawn_boss")
 			
-		if player.total_score >= 150 and not player.speed_boss_spawned:
+		if player.total_score >= 300 and not player.speed_boss_spawned:
 			player.speed_boss_spawned = true
 			call_deferred("spawn_speed_boss")
-		if player.total_score >= 260 and not player.spitter_boss_spawned:
+		if player.total_score >= 600 and not player.spitter_boss_spawned:
 			player.spitter_boss_spawned = true
 			call_deferred("spawn_spitter_boss")
 			

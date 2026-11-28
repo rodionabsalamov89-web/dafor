@@ -62,8 +62,9 @@ func die() -> void:
 	is_dead = true
 	var player_node = get_tree().get_first_node_in_group("player")
 	if player_node:
-		player.kills_count += 30
-		player.total_score += 30
+		player.kills_count += 20
+		player.total_score += 20
+		player.update_kills_ui()
 		
 	queue_free()
 

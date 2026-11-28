@@ -56,13 +56,26 @@ size = Vector2(60, 60)
 bg_color = Color(0.5, 0.5, 0.5, 1)
 border_width_left = 6
 border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.04, 0.024333334, 0.02, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2bti"]
-bg_color = Color(0.9019608, 0.11764706, 0.11764706, 1)
+bg_color = Color(0.84, 0, 0.013999786, 1)
 border_width_left = 6
 border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.04, 0.024333334, 0.02, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjqkl"]
+bg_color = Color(1, 0.51666665, 0, 1)
+border_width_left = 6
+border_width_bottom = 6
+border_color = Color(0.04, 0.024333334, 0.02, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fs4d3"]
+bg_color = Color(0.9098039, 0.47058824, 0, 1)
+border_width_left = 8
+border_width_bottom = 8
+border_color = Color(0.83137256, 0.42745098, 0, 1)
+corner_detail = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yf5fn"]
 
@@ -230,6 +243,20 @@ max_value = 5.0
 value = 5.0
 show_percentage = false
 
+[node name="KillsLabel" type="Label" parent="Player/CanvasLayer" unique_id=592910974]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -7.0
+offset_top = 20.0
+offset_bottom = 71.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.946, 0.90999997, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rjqkl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fs4d3")
+
 [node name="Spawner" type="Node2D" parent="." unique_id=242466295]
 script = ExtResource("3_0hol4")
 enemy_scene = ExtResource("4_q6r6c")
@@ -245,7 +272,7 @@ mud_spitter_scene = ExtResource("19_rjqkl")
 position = Vector2(-703, 2977)
 
 [node name="SpawnTimer" type="Timer" parent="Spawner" unique_id=1556032807]
-wait_time = 3.0
+wait_time = 2.3
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="Spawner" unique_id=1136200080]
@@ -831,6 +858,7 @@ stream = ExtResource("13_0h7mo")
 autoplay = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1064909023]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_yf5fn")
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]

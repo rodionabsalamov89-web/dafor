@@ -54,5 +54,6 @@ func die():
 		
 		player.kills_count += 1
 		player.total_score += 1
+		player.update_kills_ui()
 			
 		queue_free()
