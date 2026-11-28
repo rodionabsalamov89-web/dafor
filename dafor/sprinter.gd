@@ -53,5 +53,6 @@ func die():
 			player.heal(1)
 		
 		player.kills_count += 1
+		player.total_score += 1
 			
 		queue_free()

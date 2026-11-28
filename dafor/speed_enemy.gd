@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 330.0 #скорость врага
-@export var max_health = 130 #хп врага
+@export var max_health = 300 #хп врага
 @onready var attack_zone: Area2D = $Area2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @export var dodge_speed: float = 650.0
@@ -18,12 +18,15 @@ var knockback_immune: bool = true
 var is_dead: bool = false
 var current_health: float
 var player = null
+var max_dps: float = 16.0
+var damage_budget: float = 16.0
 
 func _ready():
 	current_health = max_health
 	player = get_tree().get_first_node_in_group("Player")
 	
 func _physics_process(_delta) -> void:
+	damage_budget = min(max_dps, damage_budget + max_dps * _delta)
 	var overlapping_bodies = attack_zone.get_overlapping_bodies()
 	
 	for body in overlapping_bodies:
@@ -52,13 +55,14 @@ func _physics_process(_delta) -> void:
 
 #получение урона
 func take_damage(amount: float):
-	if not can_take_damage:
+	if not can_take_damage or damage_budget <= 0.0:
 		return
-		
-	max_health -= amount
+	var actual_damage = min(amount, damage_budget)
+	damage_budget -= actual_damage
+	max_health -= actual_damage
 	can_take_damage = false
 	i_frame_timer.start()
-	
+
 	if max_health <= 0:
 		die()
 	
@@ -72,7 +76,8 @@ func die():
 		if randf() <= player.vampire_chance:
 			player.heal(1)
 		
-		player.kills_count += 30
+		player.kills_count += 20
+		player.total_score += 20
 		
 		if minion_scene:
 			for i in range(minion_count):

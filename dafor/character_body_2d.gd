@@ -20,6 +20,9 @@ var crit_chance: float = 0.0
 var is_dead: bool = false
 var knockback_force: float = 0.0
 var regen_timer: float = 0.0
+var total_score: int = 0
+var speed_boss_spawned: bool = false
+var spitter_boss_spawned: bool = false
 
 
 func _physics_process(_delta) -> void:
@@ -128,6 +131,7 @@ func take_damage(amount: int):
 		return
 		
 	health -= amount
+	update_health_bar()
 	
 	if health <= 0:
 		die()
@@ -140,7 +144,6 @@ func take_damage(amount: int):
 		
 		invul_timer.start()
 		
-	update_health_bar()
 		
 func _on_invul_timeout():
 	is_invulnerable = false
@@ -150,6 +153,7 @@ func die():
 		return
 	is_dead = true
 	
+	get_tree().paused = false
 	get_tree().call_deferred("reload_current_scene")
 	
 func apply_mud_slow(reduction: float) -> void:

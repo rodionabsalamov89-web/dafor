@@ -63,4 +63,5 @@ func die() -> void:
 
 	if is_instance_valid(player):
 		player.kills_count += 5
+		player.total_score += 5
 	queue_free()

@@ -7,7 +7,7 @@ size = Vector2(216, 114)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_g4v7s"]
 
-[node name="Mud" type="Area2D" unique_id=1889748145]
+[node name="Mud" type="Area2D" unique_id=1889748145 groups=["wall"]]
 modulate = Color(1, 1, 1, 0.8392157)
 scale = Vector2(2, 2)
 script = ExtResource("1_cmyrt")

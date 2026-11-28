@@ -18,8 +18,8 @@ func _physics_process(delta: float) -> void:
 	boomerang_timer += delta
 
 	if not is_returning:
-		global_position += direction * 300.0 * delta
-		if boomerang_timer >= 3.0:
+		global_position += direction * 360.0 * delta
+		if boomerang_timer >= 3.3:
 			is_returning = true
 			
 	else:
@@ -42,8 +42,8 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 		return
 
-# Игнорируем врагов (проверяем оба варианта регистра группы на всякий случай)
-	if body.is_in_group("Enemies") or body.is_in_group("enemies"):
+# Игнорируем врагов
+	if body.is_in_group("enemies"):
 		return
 # Если задели стену или любое другое препятствие — уничтожаем снаряд
 	queue_free()

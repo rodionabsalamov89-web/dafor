@@ -18,10 +18,16 @@ func _on_spawn_timer_timeout():
 		var points = []
 		for child in get_children():
 			if child is Marker2D:
-				points.append(child)
-			
+				if player:
+					var dist = child.global_position.distance_to(player.global_position)
+					if dist > 50 and dist < 1300:
+						points.append(child)
+				else:
+					points.append(child)
+
 		if points.size() > 0:
-			var random_point = points[randi() % points.size()]
+			var random_point = points.pick_random()
+			
 			var roll = randf()
 			var selected_scene = enemy_scene
 			

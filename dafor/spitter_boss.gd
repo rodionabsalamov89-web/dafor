@@ -2,12 +2,14 @@ extends CharacterBody2D
 @export var spit_scene: PackedScene = preload("res://spit.tscn")
 
 var speed: float = 150.0
-@export var health: float = 200.0
-var attack_range: float = 500.0 # Дистанция, на которой он останавливается и плюет
+@export var health: float = 800.0
+var attack_range: float = 600.0 # Дистанция, на которой он останавливается и плюет
 var can_take_damage: bool = true
 var knockback_immune: bool = true
 var half_hp_triggered: bool = false
 var is_dead: bool = false
+var max_dps: float = 16.0
+var damage_budget: float = 16.0
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var attack_timer = $AttackTimer
@@ -20,6 +22,7 @@ func _ready() -> void:
 	attack_timer.timeout.connect(_on_attack_timer_timeout)
 
 func _physics_process(_delta: float) -> void:
+	damage_budget = min(max_dps, damage_budget + max_dps * _delta)
 	look_at(player.global_position)
 	
 	if not player: return
@@ -64,10 +67,12 @@ func _on_attack_timer_timeout() -> void:
 			spit.boss_ref = self
 
 func take_damage(amount: float) -> void:
-	if is_dead:
+	if is_dead or damage_budget <= 0.0:
 		return
-	health = max(0.0, health - amount)
-	if health <= 100.0 and not half_hp_triggered:
+	var actual_damage = min(amount, damage_budget)
+	damage_budget -= actual_damage
+	health = max(0.0, health - actual_damage)
+	if health <= 400.0 and not half_hp_triggered:
 		half_hp_triggered = true
 		trigger_half_hp_explosion()
 	if health <= 0:
@@ -92,6 +97,7 @@ func die() -> void:
 	is_dead = true
 	if player:
 		player.kills_count += 45
+		player.total_score += 45
 	queue_free()
 
 func _on_i_frame_timer_timeout() -> void:

@@ -28,6 +28,7 @@ wall=""
 boss_spawn_group=""
 enemies=""
 player_bullet=""
+navigation_polygon_source_geometry_group=""
 
 [input]
 

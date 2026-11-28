@@ -4,20 +4,20 @@ var ability_pool: Array[String] = ["triple_shot", "coffee_boost", "fast_trigger"
 var current_choices: Array[String] = []
 var ability_requirements = {
 	"clean_boots": 10,
-	"coffee_boost": 25,
+	"coffee_boost": 15,
 	"triple_shot": 45,
-	"fast_trigger": 35,
+	"fast_trigger": 30,
 	"heavy_bullet": 5,
 	"piercing_shot": 30,
 	"vampirism": 30,
-	"big_shot": 20,
-	"crit punch": 30,
-	"knockback": 40,
-	"berserk": 50,
+	"big_shot": 15,
+	"crit punch": 20,
+	"knockback": 20,
+	"berserk": 45,
 	"ricochet": 40,
-	"chain_lightning": 55,
-	"passive_regen": 35,
-	"boomerang": 50
+	"chain_lightning": 60,
+	"passive_regen": 25,
+	"boomerang": 40
 	}
 	
 

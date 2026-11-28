@@ -7,9 +7,6 @@ extends CharacterBody2D
 var is_dead: bool = false
 var current_health: float
 var player = null
-static var boss_spawned: bool = false
-static var speed_boss_spawned: bool = false
-static var spitter_boss_spawned: bool = false
 
 func _ready():
 	current_health = max_health
@@ -57,16 +54,17 @@ func die():
 			player.heal(1)
 		
 		player.kills_count += 1
+		player.total_score += 1
 		
-		if player.kills_count >= 60 and not player.get("boss_spawned"):
+		if player.total_score >= 70 and not player.get("boss_spawned"):
 			player.boss_spawned = true
 			call_deferred("spawn_boss")
 			
-		if player.kills_count >= 90 and not speed_boss_spawned:
-			speed_boss_spawned = true
+		if player.total_score >= 130 and not player.speed_boss_spawned:
+			player.speed_boss_spawned = true
 			call_deferred("spawn_speed_boss")
-		if player.kills_count >= 140 and not spitter_boss_spawned:
-			spitter_boss_spawned = true
+		if player.total_score >= 220 and not player.spitter_boss_spawned:
+			player.spitter_boss_spawned = true
 			call_deferred("spawn_spitter_boss")
 			
 		queue_free()

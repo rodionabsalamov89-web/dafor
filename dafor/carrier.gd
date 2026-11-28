@@ -53,6 +53,7 @@ func die():
 			player.heal(1)
 		
 		player.kills_count += 10
+		player.total_score += 10
 		
 		if minion_scene:
 			for i in range(minion_count):

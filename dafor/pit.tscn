@@ -21,7 +21,7 @@ position = Vector2(19.3, 0)
 scale = Vector2(88, 49.661)
 texture = SubResource("CanvasTexture_g4v7s")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1361499622]
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1361499622 groups=["wall"]]
 modulate = Color(0, 0, 0, 0.4392157)
 position = Vector2(19.266665, 0.033332754)
 scale = Vector2(97.99999, 57.533337)

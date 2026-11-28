@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
-@export var max_hp: int = 150
+@export var max_hp: float = 240.0
 @export var speed: float = 120.0
 
-var current_hp: int = max_hp
+var current_hp: float = max_hp
 var can_take_damage: bool = true
 var player: Node2D = null
 var is_dashing = false
 var knockback_immune: bool = true
 var is_dead: bool = false
+var max_dps: float = 18.0
+var damage_budget: float = 18.0
 @onready var i_frame_timer: Timer = $IFrameTimer
 @onready var sprite: Sprite2D = $Sprite2D
 @export var tank_enemy_scene: PackedScene
@@ -22,6 +24,7 @@ func _ready() -> void:
 		player = players[0]
 
 func _physics_process(_delta: float) -> void:
+	damage_budget = min(max_dps, damage_budget + max_dps * _delta)
 	if is_dashing:
 		move_and_slide()
 		return
@@ -41,11 +44,11 @@ func _physics_process(_delta: float) -> void:
 
 # Функция урона, которую вызывают твои пули
 func take_damage(amount: int) -> void:
-	if not can_take_damage:
+	if not can_take_damage or damage_budget <= 0.0:
 		return
-
-	current_hp -= amount
-
+	var actual_damage = min(amount, damage_budget)
+	damage_budget -= actual_damage
+	current_hp -= actual_damage
 	if current_hp <= 0:
 		die()
 		return
@@ -59,7 +62,8 @@ func die() -> void:
 	is_dead = true
 	var player_node = get_tree().get_first_node_in_group("player")
 	if player_node:
-		player_node.kills_count += 30
+		player.kills_count += 30
+		player.total_score += 30
 		
 	queue_free()
 
